@@ -1,24 +1,7 @@
 <template>
     <el-container>
         <el-header>
-            <div>
-                <img src="../assets/img/header.jpg" alt="">
-            </div>
-            <el-menu
-                    class="el-menu-demo"
-                    mode="horizontal"
-                    background-color="#FFFFFF"
-                    text-color="#222222"
-                    active-text-color="#ffd04b">
-                <el-menu-item index="1">首页</el-menu-item>
-                <el-menu-item index="2">考试动态</el-menu-item>
-                <el-menu-item index="3">考试大纲</el-menu-item>
-                <el-menu-item index="4">CET委员会</el-menu-item>
-                <el-menu-item index="5">考试时间</el-menu-item>
-                <el-menu-item index="6">考核内容</el-menu-item>
-                <el-menu-item index="7">分数解析</el-menu-item>
-                <el-menu-item index="8">常见问题</el-menu-item>
-            </el-menu>
+            <headerbar></headerbar>
         </el-header>
 
         <el-main class="studentSignin">
@@ -82,7 +65,11 @@
     </el-container>
 </template>
 <script>
+    import headerbar from "./header/headerbar";
     export default {
+        components:{
+            headerbar
+        },
         data(){
             return{
                 signForm:{
@@ -107,7 +94,7 @@
                     this.$message.error("查询失败")
                 }
                 this.$message.success("查询成功")
-                this.scoreList = res.data
+                this.scoreList.push(res.data)
                 console.log(this.scoreList)
             }
 

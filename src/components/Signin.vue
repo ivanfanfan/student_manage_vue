@@ -10,7 +10,7 @@
                     background-color="#FFFFFF"
                     text-color="#222222"
                     active-text-color="#ffd04b">
-                <el-menu-item index="1">首页</el-menu-item>
+                <el-menu-item index="1"><router-link to="home">首页</router-link></el-menu-item>
                 <el-menu-item index="2">考试动态</el-menu-item>
                 <el-menu-item index="3">考试大纲</el-menu-item>
                 <el-menu-item index="4">CET委员会</el-menu-item>
@@ -27,7 +27,7 @@
                     <a>为了确保是您本人操作请再次输入您的证件号</a>
                 </el-form-item>
                 <el-form-item label="证件号" prop="stCardId">
-                    <el-input v-model.number="signForm.username"></el-input>
+                    <el-input v-model.text="signForm.username"></el-input>
                 </el-form-item>
                 <el-form-item label="科目选择">
                     <el-select  v-model="signForm.id" placeholder="请选择报考的科目">

@@ -1,24 +1,7 @@
 <template>
     <el-container>
         <el-header>
-            <div>
-                <img src="../assets/img/header.jpg" alt="">
-            </div>
-            <el-menu
-                    class="el-menu-demo"
-                    mode="horizontal"
-                    background-color="#FFFFFF"
-                    text-color="#222222"
-                    active-text-color="#ffd04b">
-                <el-menu-item index="1">首页</el-menu-item>
-                <el-menu-item index="2">考试动态</el-menu-item>
-                <el-menu-item index="3">考试大纲</el-menu-item>
-                <el-menu-item index="4">CET委员会</el-menu-item>
-                <el-menu-item index="5">考试时间</el-menu-item>
-                <el-menu-item index="6">考核内容</el-menu-item>
-                <el-menu-item index="7">分数解析</el-menu-item>
-                <el-menu-item index="8">常见问题</el-menu-item>
-            </el-menu>
+            <headerbar></headerbar>
         </el-header>
         <el-main>
             <div class="studentRegister">
@@ -36,7 +19,7 @@
                         <el-input type="password" v-model="studentForm.cheakPass" auto-complete="off"></el-input>
                     </el-form-item>
                     <el-form-item label="证件号" prop="stCardId">
-                        <el-input v-model.number="studentForm.stCardId"></el-input>
+                        <el-input v-model.text="studentForm.stCardId"></el-input>
                     </el-form-item>
                     <el-form-item label="姓名" prop="stName">
                         <el-input v-model.number="studentForm.stName"></el-input>
@@ -52,8 +35,13 @@
 </template>
 
 <script>
+    import headerbar from "./header/headerbar";
     export default {
+
         name: "Register",
+        components:{
+            headerbar
+        },
         data() {
             // var validatePass = (rule, value, callback) => {
             //     if (value === '') {

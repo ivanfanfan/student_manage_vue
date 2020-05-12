@@ -2,26 +2,7 @@
     <el-container class="orderContainer">
 
         <el-header>
-            <div>
-            <img src="../assets/img/header.jpg" alt="">
-        </div>
-            <el-menu
-                    :default-active="activeIndex2"
-                    class="el-menu-demo"
-                    mode="horizontal"
-                    @select="handleSelect"
-                    background-color="#FFFFFF"
-                    text-color="#222222"
-                    active-text-color="#ffd04b">
-                <el-menu-item index="1">首页</el-menu-item>
-                <el-menu-item index="2">考试动态</el-menu-item>
-                <el-menu-item index="3">考试大纲</el-menu-item>
-                <el-menu-item index="4">CET委员会</el-menu-item>
-                <el-menu-item index="5">考试时间</el-menu-item>
-                <el-menu-item index="6">考核内容</el-menu-item>
-                <el-menu-item index="7">分数解析</el-menu-item>
-                <el-menu-item index="8">常见问题</el-menu-item>
-            </el-menu>
+            <headerbar></headerbar>
         </el-header>
         <!--        主体部分-->
         <el-main>
@@ -65,7 +46,7 @@
                         <span class="Description">全国大学英语四、六级考试(CET)系教育部主办、教育部考试中心主持和实施的一项大…</span>
                     </div>
                     <div class="mores">
-                        <a class href="">详细>></a>
+                        <a><router-link to="/project">详细>></router-link></a>
                     </div>
                 </div>
                 <div class="funbox fun02">
@@ -78,7 +59,7 @@
                         <span class="Description">全国大学英语四、六级考试(CET)系教育部主办、教育部考试中心主持和实施的一项大…</span>
                     </div>
                     <div class="mores">
-                        <a class href="">详细>></a>
+                        <a class href=""><router-link to="/write">详细>></router-link></a>
                     </div>
                 </div>
                 <div class="funbox fun03">
@@ -91,7 +72,7 @@
                         <span class="Description">全国大学英语四、六级考试(CET)系教育部主办、教育部考试中心主持和实施的一项大…</span>
                     </div>
                     <div class="mores">
-                        <a class href="">详细>></a>
+                        <a> <router-link to="/talk">详细>></router-link></a>
                     </div>
                 </div>
                 <div class="funbox fun04">
@@ -122,8 +103,12 @@
 </template>
 
 <script>
+    import headerbar from "./header/headerbar";
     export default {
         name: "Home",
+        components: {
+            headerbar
+        },
         methods: {
             orderlogin(){
                 this.$router.push('/login');
@@ -136,11 +121,7 @@
     .orderContainer {
         height: 100%;
     }
-    .el-header {
-        background-color: #ffffff;
-        display: flex;
-        justify-content: space-evenly;
-    }
+
     .el-main {
         background-color: #ffffff;
 
